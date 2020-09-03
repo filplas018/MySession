@@ -1,0 +1,25 @@
+﻿@page
+@model IndexModel
+@using Plass_sessionDemo.Services;
+@{
+    ViewData["Title"] = "Home page";
+}
+
+    <div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+        <p>
+            Tajné číslo je zrovna : @if (Model.isSetSecret)
+            {<span>@Model.SecretNumber; </span>}
+        else
+        {
+            <span>Není adané tajné číslo</span>
+        }
+        </p>
+        <form method="post">
+            <input type="number" asp-for="Min" value="@Model.Min" /><br />
+            <input type="number" asp-for="Max" value="@Model.Max" /><br />
+            <input type="submit" />
+        </form>
+        <input type="number" asp-for="@Model.SecretNumber" value="@Model.SecretNumber" /><br />
+    </div>
